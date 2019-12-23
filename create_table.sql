@@ -44,7 +44,7 @@ CREATE TABLE member (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='会员';
 
 
-CREATE TABLE `order` (
+CREATE TABLE `product_order` (
   id int(11) NOT NULL AUTO_INCREMENT COMMENT '订单编号，自增主键',
   product_id int(11) NOT NULL COMMENT '商品编号',
   product_name varchar(50) NOT NULL COMMENT '商品名称',
