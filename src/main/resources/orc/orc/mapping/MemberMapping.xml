@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="orc.orc.repository.AdminRepository">
-    <resultMap id="BaseResultMap" type="orc.orc.domain.Admin">
+<mapper namespace="orc.orc.repository.MemberRepository">
+    <resultMap id="BaseResultMap" type="orc.orc.domain.Member">
         <id column="id" jdbcType="INTEGER" property="id" />
         <result column="user_name" jdbcType="VARCHAR" property="userName" />
         <result column="password" jdbcType="VARCHAR" property="password" />
+        <result column="real_name" jdbcType="VARCHAR" property="realName" />
+        <result column="nick_name" jdbcType="VARCHAR" property="nickName" />
+        <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+        <result column="email" jdbcType="VARCHAR" property="email" />
+        <result column="status" jdbcType="INTEGER" property="status" />
         <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
         <result column="created_by" jdbcType="INTEGER" property="createdBy" />
         <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
@@ -12,17 +17,32 @@
     </resultMap>
 
     <sql id="Base_Column_List">
-        id,user_name,password,created_at,created_by,updated_at,updated_by
+        id,user_name,password,real_name,nick_name,mobile,email,status,created_at,created_by,updated_at,updated_by
     </sql>
 
     <insert id="insert" parameterType="orc.orc.domain.Admin">
-        INSERT INTO admin
+        INSERT INTO member
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="userName != null">
                 user_name,
             </if>
             <if test="password != null">
                 password,
+            </if>
+            <if test="realName != null">
+                realName,
+            </if>
+            <if test="nickName != null">
+                nickName,
+            </if>
+            <if test="mobile != null">
+                mobile,
+            </if>
+            <if test="email != null">
+                email,
+            </if>
+            <if test="status != null">
+                status,
             </if>
             <if test="createdBy != null">
                 created_by,
@@ -44,6 +64,21 @@
             <if test="password != null">
                 #{password,jdbcType=VARCHAR},
             </if>
+            <if test="realName != null">
+                #{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                #{status,jdbcType=VARCHAR},
+            </if>
             <if test="createdBy != null">
                 #{createdBy,jdbcType=INTEGER},
             </if>
@@ -60,18 +95,33 @@
     </insert>
 
     <delete id="deleteById" parameterType="java.lang.Integer">
-        DELETE FROM admin
+        DELETE FROM member
         WHERE id = #{id,jdbcType=INTEGER}
     </delete>
 
     <update id="update" parameterType="orc.orc.domain.Admin">
-        UPDATE admin
+        UPDATE member
         <set>
             <if test="userName != null">
                 user_name = #{userName,jdbcType=VARCHAR},
             </if>
             <if test="password != null">
                 password = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="realName != null">
+                real_name = #{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                nick_name = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
             </if>
             <if test="createdBy != null">
                 created_by = #{createdBy,jdbcType=INTEGER},
@@ -106,6 +156,21 @@
             </if>
             <if test="password != null">
                 AND password = #{password,jdbcType=VARCHAR}
+            </if>
+            <if test="realName != null">
+                real_name = #{realName,jdbcType=VARCHAR},
+            </if>
+            <if test="nickName != null">
+                nick_name = #{nickName,jdbcType=VARCHAR},
+            </if>
+            <if test="mobile != null">
+                mobile = #{mobile,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null">
+                email = #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="status != null">
+                status = #{status,jdbcType=VARCHAR},
             </if>
             <if test="createdBy != null">
                 AND created_by = #{createdBy,jdbcType=INTEGER}
