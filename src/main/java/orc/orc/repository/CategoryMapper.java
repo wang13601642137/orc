@@ -3,6 +3,8 @@ package orc.orc.repository;
 import orc.orc.domain.Category;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CategoryMapper {
     /**
@@ -52,4 +54,6 @@ public interface CategoryMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(Category record);
+
+    List<Category> find(Category record);
 }

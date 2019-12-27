@@ -1,4 +1,4 @@
-<form id="pagerForm" method="post" action="demo_page1.html">
+<form id="pagerForm" method="post" action="product/category/list">
 	<input type="hidden" name="status" value="${param.status}">
 	<input type="hidden" name="keywords" value="${param.keywords}" />
 	<input type="hidden" name="pageNum" value="1" />
@@ -8,7 +8,7 @@
 
 
 <div class="pageHeader">
-	<form onsubmit="return navTabSearch(this);" action="demo_page1.html" method="post" onreset="$(this).find('select.combox').comboxReset()">
+	<form onsubmit="return navTabSearch(this);" action="product/category/list" method="post" onreset="$(this).find('select.combox').comboxReset()">
 	<div class="searchBar">
 
 	</div>
@@ -30,18 +30,18 @@
 				<th width="120">分类编号</th>
 				<th width="100">分类名称</th>
 				<th width="100">是否有效</th>
-				<th width="80">创建时间</th>
-				<th width="80">更新时间</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr target="sid_user" rel="1">
-				<td>1</td>
-				<td>男装</td>
-				<td>是</td>
-				<td>2019-12-11 11:11:11</td>
-				<td>2019-12-11 11:11:11</td>
+
+		<#list categoryList as category>
+            <tr target="sid_user" rel="1">
+				<td>${category.id}</td>
+				<td>${category.name}</td>
+				<td>${category.status}</td>
 			</tr>
+	    </#list>
+
 		</tbody>
 	</table>
 	<div class="panelBar">

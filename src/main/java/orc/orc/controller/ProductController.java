@@ -1,9 +1,14 @@
 package orc.orc.controller;
 
+import orc.orc.domain.Category;
+import orc.orc.service.ProductService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.List;
 
 /**
  * Created by wenjin.wang on 2019/12/27.
@@ -11,11 +16,13 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @Controller
 @RequestMapping(value = "product")
 public class ProductController {
+    @Autowired
+    private ProductService productService;
 
     @RequestMapping("/category/list")
     public String categoryList(ModelMap map) {
-        map.put("userName", "小明");
-        map.put("userAge", 23);
+        List<Category> categoryList = productService.findCategory(new Category());
+        map.put("categoryList", categoryList);
         return "category/list";
     }
 
@@ -27,8 +34,11 @@ public class ProductController {
     @ResponseBody
     @RequestMapping("/category/save")
     public Response saveCategory(String name, ModelMap map) {
+        Category record = new Category();
+        record.setName(name);
+        record.setStatus(true);
+        productService.saveCategory(record);
         Response response = new Response();
-        response.setForwardUrl("product/category/list");
         return response;
     }
 
