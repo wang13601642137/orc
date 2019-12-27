@@ -66,7 +66,7 @@
 
 <script type="text/javascript">
 $(function(){
-	DWZ.init("http://localhost:8080/dwz.frag.xml", {
+	DWZ.init("../../dwz.frag.xml", {
 		//loginUrl:"login_dialog.html", loginTitle:"登录",	// 弹出登录对话框
 //		loginUrl:"login.html",	// 跳到登录页面
 		statusCode:{ok:200, error:300, timeout:301}, //【可选】
@@ -155,6 +155,7 @@ $(function(){
 									<li><a href="demo/common/ajaxDone_loadPage_error.html" target="dialog">dialog加载页面验证失败</a></li>
 									<li><a href="index_menu.html" target="_blank">横向导航条</a></li>
 									<li><a href="miscDragScreen1.html" target="_blank">屏幕拖拽配制示例</a></li>
+                                    <li><a href="product/list" target="navTab" rel="page1" fresh="false">ORC PRODUCT LIST</a></li>
 								</ul>
 							</li>
 
