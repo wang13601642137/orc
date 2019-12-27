@@ -26,4 +26,7 @@ public class ProductService {
         return categoryMapper.find(condition);
     }
 
+    public void deleteCategory(Integer cid) {
+        categoryMapper.deleteByPrimaryKey(cid);
+    }
 }

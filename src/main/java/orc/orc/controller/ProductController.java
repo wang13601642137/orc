@@ -49,11 +49,12 @@ public class ProductController {
         return "category/add";
     }
 
+    @ResponseBody
     @RequestMapping("/category/delete")
-    public String deleteCategory(ModelMap map) {
-        map.put("userName", "小明");
-        map.put("userAge", 23);
-        return "category/list";
+    public Response deleteCategory(Integer cid, ModelMap map) {
+        productService.deleteCategory(cid);
+        Response response = new Response();
+        return response;
     }
 
 

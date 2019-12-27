@@ -18,8 +18,8 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<li><a class="add" href="product/category/toAdd" target="dialog"><span>添加</span></a></li>
-			<li><a class="delete" href="product/category/delete?uid={sid_user}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
-			<li><a class="edit" href="product/category/toUpdate?uid={sid_user}" target="navTab"><span>修改</span></a></li>
+			<li><a class="delete" href="product/category/delete?cid={cid}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+			<li><a class="edit" href="product/category/toUpdate?cid={cid}" target="navTab"><span>修改</span></a></li>
 			<li class="line">line</li>
 
 		</ul>
@@ -35,10 +35,10 @@
 		<tbody>
 
 		<#list categoryList as category>
-            <tr target="sid_user" rel="1">
+            <tr target="cid" rel=${category.id}>
 				<td>${category.id}</td>
 				<td>${category.name}</td>
-				<td>${category.status}</td>
+				<td>${category.status?string ("是","否")} </td>
 			</tr>
 	    </#list>
 
