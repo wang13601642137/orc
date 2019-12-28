@@ -2,6 +2,7 @@ package orc.orc.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import orc.orc.domain.Category;
+import orc.orc.domain.Product;
 import orc.orc.service.ProductService;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,11 @@ public class ProductController {
         return "category/add";
     }
 
+    @RequestMapping("/toAdd")
+    public String toAddProduct(ModelMap map) {
+        return "product/add";
+    }
+
     @ResponseBody
     @RequestMapping("/category/save")
     public Response saveCategory(String name, ModelMap map) {
@@ -51,6 +57,14 @@ public class ProductController {
         Category category = productService.getCategoryById(cid);
         map.put("category", category);
         return "category/update";
+    }
+
+    @RequestMapping("/toUpdate")
+    public String toUpdateProduct(Integer pid, ModelMap map) {
+        log.info("pid:" + pid);
+        Product product = productService.getProductById(pid);
+        map.put("product", product);
+        return "product/update";
     }
 
     @ResponseBody
@@ -78,5 +92,7 @@ public class ProductController {
         map.put("userAge", 23);
         return "product/list";
     }
+
+
 
 }

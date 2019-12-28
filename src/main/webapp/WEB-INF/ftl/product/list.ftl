@@ -29,9 +29,9 @@
 <div class="pageContent">
 	<div class="panelBar">
 		<ul class="toolBar">
-			<li><a class="add" href="demo_page4.html" target="navTab"><span>添加</span></a></li>
-			<li><a class="delete" href="demo/common/ajaxDone.html?uid={sid_user}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
-			<li><a class="edit" href="demo_page4.html?uid={sid_user}" target="navTab"><span>修改</span></a></li>
+			<li><a class="add" href="product/toAdd" target="dialog"><span>添加</span></a></li>
+			<li><a class="delete" href="product/delete?uid={pid}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+			<li><a class="edit" href="product/toUpdate?uid={pid}" target="dialog"><span>修改</span></a></li>
 			<li class="line">line</li>
 			<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
 		</ul>
@@ -50,13 +50,12 @@
 		</thead>
 		<tbody>
 			<tr target="sid_user" rel="1">
-				<td>天津农信社</td>
-				<td>A120113196309052434</td>
-				<td>天津市华建装饰工程有限公司</td>
-				<td>联社营业部</td>
-				<td>29385739203816293</td>
-				<td>5级</td>
-				<td>政府机构</td>
+				<td>苹果</td>
+				<td>10元</td>
+				<td>10</td>
+				<td>是</td>
+				<td>是</td>
+				<td>2009-05-21</td>
 				<td>2009-05-21</td>
 			</tr>
 		</tbody>

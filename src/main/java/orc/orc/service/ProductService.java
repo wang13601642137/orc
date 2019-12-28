@@ -1,6 +1,7 @@
 package orc.orc.service;
 
 import orc.orc.domain.Category;
+import orc.orc.domain.Product;
 import orc.orc.repository.CategoryMapper;
 import orc.orc.repository.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,5 +37,9 @@ public class ProductService {
 
     public void modifyCategory(Category record) {
         categoryMapper.updateByPrimaryKey(record);
+    }
+
+    public Product getProductById(Integer pid) {
+        return productMapper.selectByPrimaryKey(pid);
     }
 }
