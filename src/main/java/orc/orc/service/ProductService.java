@@ -29,4 +29,12 @@ public class ProductService {
     public void deleteCategory(Integer cid) {
         categoryMapper.deleteByPrimaryKey(cid);
     }
+
+    public Category getCategoryById(Integer cid) {
+        return categoryMapper.selectByPrimaryKey(cid);
+    }
+
+    public void modifyCategory(Category record) {
+        categoryMapper.updateByPrimaryKey(record);
+    }
 }

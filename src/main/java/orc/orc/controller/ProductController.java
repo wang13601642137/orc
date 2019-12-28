@@ -1,7 +1,9 @@
 package orc.orc.controller;
 
+import lombok.extern.slf4j.Slf4j;
 import orc.orc.domain.Category;
 import orc.orc.service.ProductService;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -13,6 +15,7 @@ import java.util.List;
 /**
  * Created by wenjin.wang on 2019/12/27.
  */
+@Slf4j
 @Controller
 @RequestMapping(value = "product")
 public class ProductController {
@@ -43,10 +46,21 @@ public class ProductController {
     }
 
     @RequestMapping("/category/toUpdate")
-    public String toUpdateCategory(ModelMap map) {
-        map.put("userName", "小明");
-        map.put("userAge", 23);
-        return "category/add";
+    public String toUpdateCategory(Integer cid, ModelMap map) {
+        log.info("cid:" + cid);
+        Category category = productService.getCategoryById(cid);
+        map.put("category", category);
+        return "category/update";
+    }
+
+    @ResponseBody
+    @RequestMapping("/category/modify")
+    public Response saveCategory(@Param("cid") String cid, @Param("name") String name, ModelMap map) {
+        Category record = productService.getCategoryById(Integer.parseInt(cid));
+        record.setName(name);
+        productService.modifyCategory(record);
+        Response response = new Response();
+        return response;
     }
 
     @ResponseBody
