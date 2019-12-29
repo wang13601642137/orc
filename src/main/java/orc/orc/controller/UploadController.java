@@ -10,7 +10,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
-import java.util.Random;
 
 /**
  * Created by wenjin.wang on 2019/12/28.
@@ -21,7 +20,7 @@ import java.util.Random;
 @RequestMapping(value = "upload")
 public class UploadController {
 
-    private String storePath = "/Users/wenjin.wang/Lab/source/orc/src/main/webapp";
+    private String storePath = "/Users/wenjin.wang/Lab/source/orc/src/main/webapp/upload";
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody

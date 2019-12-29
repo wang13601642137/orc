@@ -6,10 +6,12 @@
 				<input type="text"  value="" name="name" class="textInput">
 				<label>价格：</label>
                 <input type="text"  value="" name="price" class="textInput">
+                <label>库存：</label>
+                <input type="text"  value="" name="quantity" class="textInput">
                 <label>分类：</label>
-                <input type="text"  value="" name="category" class="textInput">
+                <input type="text"  value="" name="cid" class="textInput">
                 <label>商品图片：</label>
-                <input type="text"  value="" name="url" class="textInput">
+                <input type="text"  value="" name="imgUrl" class="textInput">
                 <input id="file" name="file" type="file" /> <button id="button" type="button">上传</button>
                 <label>描述：</label>
                 <input type="text"  value="" name="description" class="textInput">
@@ -47,7 +49,7 @@
     			if (data=="error") {
     				alert("文件提交失败!");
     			}else{
-    			$("input[name='url']").val(data);
+    			$("input[name='imgUrl']").val(data);
     			alert("文件上传成功!");
     		}}
     	});

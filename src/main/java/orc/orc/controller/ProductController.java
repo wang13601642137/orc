@@ -11,6 +11,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.math.BigDecimal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -93,6 +95,27 @@ public class ProductController {
         return "product/list";
     }
 
-
+    @ResponseBody
+    @RequestMapping("/save")
+    public Response saveProduct(String name, BigDecimal price,Integer quantity,  Integer cid, String imgUrl, String description, ModelMap map) {
+        log.info("name:{}, price:{}, cid:{}, imgUrl:{}, description:{}", name, price, cid, imgUrl, description);
+        Product record = new Product();
+        record.setName(name);
+        record.setPrice(price);
+        record.setCategoryId(cid);
+        record.setImageUrl(imgUrl);
+        record.setQuantity(quantity);
+        record.setDescription(description);
+        record.setStatus(true);
+        record.setSale(true);
+        record.setCreatedAt(new Date());
+        record.setCreatedBy(0);
+        record.setUpdatedAt(new Date());
+        record.setUpdatedBy(0);
+        record.setStatus(true);
+        productService.saveProduct(record);
+        Response response = new Response();
+        return response;
+    }
 
 }

@@ -42,4 +42,8 @@ public class ProductService {
     public Product getProductById(Integer pid) {
         return productMapper.selectByPrimaryKey(pid);
     }
+
+    public void saveProduct(Product record) {
+        productMapper.insert(record);
+    }
 }
