@@ -1,4 +1,4 @@
-<form id="pagerForm" method="post" action="demo_page1.html">
+<form id="pagerForm" method="post" action="product/list">
 	<input type="hidden" name="status" value="${param.status}">
 	<input type="hidden" name="keywords" value="${param.keywords}" />
 	<input type="hidden" name="pageNum" value="1" />
@@ -8,7 +8,7 @@
 
 
 <div class="pageHeader">
-	<form onsubmit="return navTabSearch(this);" action="demo_page1.html" method="post" onreset="$(this).find('select.combox').comboxReset()">
+	<form onsubmit="return navTabSearch(this);" action="product/list" method="post" onreset="$(this).find('select.combox').comboxReset()">
 	<div class="searchBar">
 		<table class="searchContent">
 			<tr>
@@ -40,24 +40,28 @@
 		<thead>
 			<tr>
 				<th width="120">商品名称</th>
-				<th>价格</th>
-				<th width="100">库存</th>
-				<th width="150">是否上架</th>
+				<th width="50">价格</th>
+				<th>图片</th>
+				<th width="50">库存</th>
+				<th width="80">是否上架</th>
 				<th width="80" align="center">是否有效</th>
-				<th width="80">创建时间</th>
-				<th width="80">更新时间</th>
+				<th width="150">创建时间</th>
+				<th width="150">更新时间</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr target="sid_user" rel="1">
-				<td>苹果</td>
-				<td>10元</td>
-				<td>10</td>
-				<td>是</td>
-				<td>是</td>
-				<td>2009-05-21</td>
-				<td>2009-05-21</td>
-			</tr>
+			<#list productList as product>
+                <tr target="sid_user" rel="${product.id}">
+                    <td>${product.name}</td>
+                    <td>${product.price}</td>
+                    <td class="imgs"><img style="width:100px;height:100px" src="http://localhost/upload/${product.imageUrl}"/></td>
+                    <td>${product.quantity}</td>
+                    <td>${product.status?string ("是","否")}</td>
+                    <td>${product.status?string ("是","否")}</td>
+                    <td>${product.createdAt?string('yyyy-MM-dd hh:mm:ss')}</td>
+                    <td>${product.updatedAt?string('yyyy-MM-dd hh:mm:ss')}</td>
+                </tr>
+            </#list>
 		</tbody>
 	</table>
 	<div class="panelBar">
@@ -78,3 +82,8 @@
 
 	</div>
 </div>
+
+<style type="text/css" media="screen">
+    .imgs{text-align:center;}
+    .imgs div{height:100px!important;}
+</style>

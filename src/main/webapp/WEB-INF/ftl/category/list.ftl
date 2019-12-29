@@ -38,7 +38,7 @@
             <tr target="cid" rel=${category.id}>
 				<td>${category.id}</td>
 				<td>${category.name}</td>
-				<td>${category.status?string ("是","否")} </td>
+				<td>${category.status?string ("是","否")}</td>
 			</tr>
 	    </#list>
 

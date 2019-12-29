@@ -87,14 +87,6 @@ public class ProductController {
         return response;
     }
 
-
-    @RequestMapping("/list")
-    public String sayHello1(ModelMap map) {
-        map.put("userName", "小明");
-        map.put("userAge", 23);
-        return "product/list";
-    }
-
     @ResponseBody
     @RequestMapping("/save")
     public Response saveProduct(String name, BigDecimal price,Integer quantity,  Integer cid, String imgUrl, String description, ModelMap map) {
@@ -118,4 +110,11 @@ public class ProductController {
         return response;
     }
 
+
+    @RequestMapping("/list")
+    public String productList(ModelMap map) {
+        List<Product> productList = productService.findProduct(new Product());
+        map.put("productList", productList);
+        return "product/list";
+    }
 }

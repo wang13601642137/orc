@@ -27,6 +27,10 @@ public class ProductService {
         return categoryMapper.find(condition);
     }
 
+    public List<Product> findProduct(Product condition) {
+        return productMapper.find(condition);
+    }
+
     public void deleteCategory(Integer cid) {
         categoryMapper.deleteByPrimaryKey(cid);
     }
