@@ -35,12 +35,20 @@ public class ProductService {
         categoryMapper.deleteByPrimaryKey(cid);
     }
 
+    public void deleteProduct(Integer pid) {
+        productMapper.deleteByPrimaryKey(pid);
+    }
+
     public Category getCategoryById(Integer cid) {
         return categoryMapper.selectByPrimaryKey(cid);
     }
 
     public void modifyCategory(Category record) {
         categoryMapper.updateByPrimaryKey(record);
+    }
+
+    public void modifyProduct(Product record) {
+        productMapper.updateByPrimaryKeySelective(record);
     }
 
     public Product getProductById(Integer pid) {

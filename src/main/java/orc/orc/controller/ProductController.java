@@ -110,10 +110,42 @@ public class ProductController {
         return response;
     }
 
+    @ResponseBody
+    @RequestMapping("/modify")
+    public Response modifyProduct(Integer id, String name, BigDecimal price,Integer quantity,  Integer cid, String imageUrl, String description, ModelMap map) {
+        log.info("id:{}, name:{}, price:{}, cid:{}, imgUrl:{}, description:{}", id, name, price, cid, imageUrl, description);
+        Product record = new Product();
+        record.setId(id);
+        record.setName(name);
+        record.setPrice(price);
+        record.setCategoryId(cid);
+        record.setImageUrl(imageUrl);
+        record.setQuantity(quantity);
+        record.setDescription(description);
+        record.setUpdatedAt(new Date());
+        record.setUpdatedBy(0);
+        record.setStatus(true);
+        productService.modifyProduct(record);
+        Response response = new Response();
+        return response;
+    }
+
+    @ResponseBody
+    @RequestMapping("/delete")
+    public Response deleteProduct(Integer pid, ModelMap map) {
+        log.info("删除商品，请求入参:pid:{}", pid);
+        productService.deleteProduct(pid);
+        Response response = new Response();
+        return response;
+    }
+
 
     @RequestMapping("/list")
-    public String productList(ModelMap map) {
-        List<Product> productList = productService.findProduct(new Product());
+    public String productList(String keyword, ModelMap map) {
+        log.info("搜索商品，请求入参：keyword:{}", keyword);
+        Product product = new Product();
+        product.setName(keyword);
+        List<Product> productList = productService.findProduct(product);
         map.put("productList", productList);
         return "product/list";
     }

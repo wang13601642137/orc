@@ -30,8 +30,8 @@
 	<div class="panelBar">
 		<ul class="toolBar">
 			<li><a class="add" href="product/toAdd" target="dialog"><span>添加</span></a></li>
-			<li><a class="delete" href="product/delete?uid={pid}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
-			<li><a class="edit" href="product/toUpdate?uid={pid}" target="dialog"><span>修改</span></a></li>
+			<li><a class="delete" href="product/delete?pid={pid}" target="ajaxTodo" title="确定要删除吗?"><span>删除</span></a></li>
+			<li><a class="edit" href="product/toUpdate?pid={pid}" target="dialog"><span>修改</span></a></li>
 			<li class="line">line</li>
 			<li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab" title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
 		</ul>
@@ -51,7 +51,7 @@
 		</thead>
 		<tbody>
 			<#list productList as product>
-                <tr target="sid_user" rel="${product.id}">
+                <tr target="pid" rel="${product.id}">
                     <td>${product.name}</td>
                     <td>${product.price}</td>
                     <td class="imgs"><img style="width:100px;height:100px" src="http://localhost/upload/${product.imageUrl}"/></td>
