@@ -119,7 +119,7 @@ $(function(){
 				<div class="accordion" fillSpace="sidebar">
 					<div class="accordionContent">
 						<ul class="tree treeFolder">
-							<li><a href="tabsPage.html" target="navTab">商品管理</a>
+							<li><a href="#">商品管理</a>
 							    <ul>
                                     <li><a href="product/category/list" target="navTab" rel="page1" fresh="false">分类</a></li>
                                 </ul>
@@ -129,16 +129,16 @@ $(function(){
 							</li>
 						</ul>
 						<ul class="tree treeFolder">
-                            <li><a href="tabsPage.html" target="navTab">订单管理</a>
+                            <li><a href="#">订单管理</a>
                                 <ul>
-                                    <li><a href="product/list" target="navTab" rel="page1" fresh="false">订单列表</a></li>
+                                    <li><a href="order/list" target="navTab" rel="page1" fresh="false">订单列表</a></li>
                                 </ul>
                             </li>
                         </ul>
                         <ul class="tree treeFolder">
-                            <li><a href="tabsPage.html" target="navTab">购物车管理</a>
+                            <li><a href="#">购物车管理</a>
                                 <ul>
-                                    <li><a href="product/list" target="navTab" rel="page1" fresh="false">添加记录</a></li>
+                                    <li><a href="cart/list" target="navTab" rel="page1" fresh="false">添加记录</a></li>
                                 </ul>
                             </li>
                         </ul>

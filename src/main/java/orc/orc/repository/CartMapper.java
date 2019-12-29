@@ -1,7 +1,10 @@
 package orc.orc.repository;
 
 import orc.orc.domain.Cart;
+import orc.orc.domain.CartVO;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 
@@ -53,4 +56,6 @@ public interface CartMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(Cart record);
+
+    List<CartVO> find(Cart record);
 }

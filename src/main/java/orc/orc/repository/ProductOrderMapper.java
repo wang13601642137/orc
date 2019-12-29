@@ -3,6 +3,8 @@ package orc.orc.repository;
 import orc.orc.domain.ProductOrder;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface ProductOrderMapper {
     /**
@@ -52,4 +54,6 @@ public interface ProductOrderMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(ProductOrder record);
+
+    List<ProductOrder> find(ProductOrder record);
 }
