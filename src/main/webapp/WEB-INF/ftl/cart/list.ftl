@@ -48,7 +48,7 @@
                     <td>${cart.userId}</td>
                     <td>${cart.userName}</td>
                     <td>${cart.createdAt?string('yyyy-MM-dd hh:mm:ss')}</td>
-                    <td>${cart.updatedAt?string('yyyy-MM-dd hh:mm:ss')}</td>
+                    <td>${cart.updateAt?string('yyyy-MM-dd hh:mm:ss')}</td>
                 </tr>
             </#list>
 		</tbody>
