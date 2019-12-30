@@ -38,15 +38,20 @@ public class CartController {
 
     @RequestMapping("/addCart")
     @ResponseBody
-    public AjaxResponse addCart(Integer productId, Integer nums, HttpServletRequest request) {
-        log.info("添加购物车，请求参数：productId:{}, nums:{}", productId, nums);
+    public AjaxResponse addCart(Integer productId, Integer quantity, HttpServletRequest request) {
+        log.info("添加购物车，请求参数：productId:{}, quantity:{}", productId, quantity);
         AjaxResponse ajaxResponse = new AjaxResponse();
         if(request.getSession().getAttribute("login").equals("0")) {
             ajaxResponse.setCode(AjaxResponse.fail);
             ajaxResponse.setMsg("请您先登陆");
         } else {
             Integer userId = (Integer) request.getSession().getAttribute("userId");
-            cartService.addCart(productId, nums, userId);
+            try {
+                cartService.addCart(productId, quantity, userId);
+            } catch (Exception e) {
+                ajaxResponse.setCode(AjaxResponse.fail);
+                ajaxResponse.setMsg("添加购物车失败");
+            }
         }
         return ajaxResponse;
     }

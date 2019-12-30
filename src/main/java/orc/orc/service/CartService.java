@@ -8,6 +8,7 @@ import orc.orc.repository.ProductMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -26,10 +27,15 @@ public class CartService {
         return cartMapper.find(record);
     }
 
-    public void addCart(Integer productId, Integer nums, Integer userId) {
+    public void addCart(Integer productId, Integer quantity, Integer userId) {
         Cart record = new Cart();
         record.setUserId(userId);
         record.setProductId(productId);
-//        record.set
+        record.setQuantity(quantity);
+        record.setCreatedAt(new Date());
+        record.setCreatedBy(0);
+        record.setUpdateAt(new Date());
+        record.setUpdatedBy(0);
+        cartMapper.insert(record);
     }
 }
