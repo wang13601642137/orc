@@ -78,14 +78,16 @@ public class MemberController {
 
     @RequestMapping("/addCart")
     @ResponseBody
-    public String addCart(Integer productId, Integer nums, HttpServletRequest request) {
+    public AjaxResponse addCart(Integer productId, Integer nums, HttpServletRequest request) {
         log.info("添加购物车，请求参数：productId:{}, nums:{}", productId, nums);
+        AjaxResponse ajaxResponse = new AjaxResponse();
         if(request.getSession().getAttribute("login").equals("0")) {
-            return "";
+            ajaxResponse.setCode(AjaxResponse.fail);
+            ajaxResponse.setMsg("请您先登陆");
+        } else {
+
         }
-
-
-        return "添加购物车成功";
+        return ajaxResponse;
     }
 
 
