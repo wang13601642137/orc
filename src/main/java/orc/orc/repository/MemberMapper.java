@@ -3,6 +3,8 @@ package orc.orc.repository;
 import orc.orc.domain.Member;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface MemberMapper {
     /**
@@ -52,4 +54,6 @@ public interface MemberMapper {
      * @mbg.generated
      */
     int updateByPrimaryKey(Member record);
+
+    List<Member> find(Member record);
 }
