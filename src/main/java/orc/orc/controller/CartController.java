@@ -36,7 +36,7 @@ public class CartController {
         return "cart/list";
     }
 
-    @RequestMapping("/addCart")
+    @RequestMapping("/add")
     @ResponseBody
     public AjaxResponse addCart(Integer productId, Integer quantity, HttpServletRequest request) {
         log.info("添加购物车，请求参数：productId:{}, quantity:{}", productId, quantity);

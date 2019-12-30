@@ -214,7 +214,7 @@
     -->
     select
     <include refid="Base_Column_List" />
-    from product
+    from member
     <where>
       <if test="userName != null">
         user_name = #{userName,jdbcType=VARCHAR},
