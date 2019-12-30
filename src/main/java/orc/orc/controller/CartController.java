@@ -3,14 +3,14 @@ package orc.orc.controller;
 import lombok.extern.slf4j.Slf4j;
 import orc.orc.domain.Cart;
 import orc.orc.domain.CartVO;
-import orc.orc.domain.ProductOrder;
 import orc.orc.service.CartService;
-import orc.orc.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -34,5 +34,20 @@ public class CartController {
         List<CartVO> cartVOList = cartService.findCart(cart);
         map.put("cartVOList", cartVOList);
         return "cart/list";
+    }
+
+    @RequestMapping("/addCart")
+    @ResponseBody
+    public AjaxResponse addCart(Integer productId, Integer nums, HttpServletRequest request) {
+        log.info("添加购物车，请求参数：productId:{}, nums:{}", productId, nums);
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        if(request.getSession().getAttribute("login").equals("0")) {
+            ajaxResponse.setCode(AjaxResponse.fail);
+            ajaxResponse.setMsg("请您先登陆");
+        } else {
+            Integer userId = (Integer) request.getSession().getAttribute("userId");
+            cartService.addCart(productId, nums, userId);
+        }
+        return ajaxResponse;
     }
 }

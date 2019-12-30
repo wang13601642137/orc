@@ -25,4 +25,11 @@ public class CartService {
     public List<CartVO> findCart(Cart record) {
         return cartMapper.find(record);
     }
+
+    public void addCart(Integer productId, Integer nums, Integer userId) {
+        Cart record = new Cart();
+        record.setUserId(userId);
+        record.setProductId(productId);
+//        record.set
+    }
 }

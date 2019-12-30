@@ -74,23 +74,6 @@ public class MemberController {
         return ajaxResponse;
     }
 
-
-
-    @RequestMapping("/addCart")
-    @ResponseBody
-    public AjaxResponse addCart(Integer productId, Integer nums, HttpServletRequest request) {
-        log.info("添加购物车，请求参数：productId:{}, nums:{}", productId, nums);
-        AjaxResponse ajaxResponse = new AjaxResponse();
-        if(request.getSession().getAttribute("login").equals("0")) {
-            ajaxResponse.setCode(AjaxResponse.fail);
-            ajaxResponse.setMsg("请您先登陆");
-        } else {
-
-        }
-        return ajaxResponse;
-    }
-
-
     public static boolean validateName(String name) {
         String regExp = "^[^0-9][\\w_]{5,9}$";
         if(name.matches(regExp)) {
