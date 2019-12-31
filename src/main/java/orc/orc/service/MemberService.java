@@ -33,7 +33,6 @@ public class MemberService {
         Member record = new Member();
         record.setUserName(userName);
         record.setPassword(password);
-        record.setUserName(userName);
         List<Member> memberList = memberMapper.find(record);
         if(memberList != null) {
             return memberList.get(0);

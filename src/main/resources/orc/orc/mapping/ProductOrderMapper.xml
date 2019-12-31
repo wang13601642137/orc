@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="orc.orc.repository.ProductOrderMapper">
+
   <resultMap id="BaseResultMap" type="orc.orc.domain.ProductOrder">
     <!--
       WARNING - @mbg.generated
@@ -9,7 +10,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="product_id" jdbcType="INTEGER" property="productId" />
     <result column="product_name" jdbcType="VARCHAR" property="productName" />
-    <result column="status" jdbcType="TINYINT" property="status" />
+    <result column="status" jdbcType="BIT" property="status" />
     <result column="amount" jdbcType="DECIMAL" property="amount" />
     <result column="consignee_name" jdbcType="VARCHAR" property="consigneeName" />
     <result column="consignee_address" jdbcType="VARCHAR" property="consigneeAddress" />
@@ -57,7 +58,7 @@
     created_at, created_by, update_at,
     update_by)
     values (#{id,jdbcType=INTEGER}, #{productId,jdbcType=INTEGER}, #{productName,jdbcType=VARCHAR},
-    #{status,jdbcType=TINYINT}, #{amount,jdbcType=DECIMAL}, #{consigneeName,jdbcType=VARCHAR},
+    #{status,jdbcType=BIT}, #{amount,jdbcType=DECIMAL}, #{consigneeName,jdbcType=VARCHAR},
     #{consigneeAddress,jdbcType=VARCHAR}, #{consigneeMobile,jdbcType=VARCHAR}, #{userId,jdbcType=INTEGER},
     #{createdAt,jdbcType=TIMESTAMP}, #{createdBy,jdbcType=INTEGER}, #{updateAt,jdbcType=TIMESTAMP},
     #{updateBy,jdbcType=INTEGER})
@@ -120,7 +121,7 @@
         #{productName,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
-        #{status,jdbcType=TINYINT},
+        #{status,jdbcType=BIT},
       </if>
       <if test="amount != null">
         #{amount,jdbcType=DECIMAL},
@@ -165,7 +166,7 @@
         product_name = #{productName,jdbcType=VARCHAR},
       </if>
       <if test="status != null">
-        status = #{status,jdbcType=TINYINT},
+        status = #{status,jdbcType=BIT},
       </if>
       <if test="amount != null">
         amount = #{amount,jdbcType=DECIMAL},
@@ -205,7 +206,7 @@
     update product_order
     set product_id = #{productId,jdbcType=INTEGER},
     product_name = #{productName,jdbcType=VARCHAR},
-    status = #{status,jdbcType=TINYINT},
+    status = #{status,jdbcType=BIT},
     amount = #{amount,jdbcType=DECIMAL},
     consignee_name = #{consigneeName,jdbcType=VARCHAR},
     consignee_address = #{consigneeAddress,jdbcType=VARCHAR},

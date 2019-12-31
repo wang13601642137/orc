@@ -18,4 +18,8 @@ public class OrderService {
     public List<ProductOrder> search(ProductOrder record) {
         return orderMapper.find(record);
     }
+
+    public void placeOrder(ProductOrder record) {
+        orderMapper.insert(record);
+    }
 }
