@@ -44,7 +44,7 @@ public class MemberService {
         Member record = new Member();
         record.setUserName(userName);
         List<Member> memberList = memberMapper.find(record);
-        if(memberList != null) {
+        if(memberList != null && memberList.size() > 0) {
             return memberList.get(0);
         }
         return null;
