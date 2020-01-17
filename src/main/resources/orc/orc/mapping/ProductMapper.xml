@@ -228,16 +228,16 @@
     from product
     <where>
       <if test="name != null">
-        name = #{name,jdbcType=VARCHAR},
+        AND name = #{name,jdbcType=VARCHAR}
       </if>
       <if test="status != null">
-        status = #{status,jdbcType=BIT},
+        AND status = #{status,jdbcType=BIT}
       </if>
       <if test="sale != null">
-        sale = #{sale,jdbcType=BIT},
+        AND sale = #{sale,jdbcType=BIT}
       </if>
       <if test="categoryId != null">
-        category_id = #{categoryId,jdbcType=BIT},
+        AND category_id = #{categoryId,jdbcType=BIT}
       </if>
     </where>
   </select>

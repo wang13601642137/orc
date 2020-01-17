@@ -188,6 +188,6 @@
     SELECT cart.*, product.name AS product_name, member.real_name
     FROM cart, product, member
     WHERE cart.product_id = product.id
-    AND cart.user_id = member.id;
+    AND cart.user_id = member.id
   </select>
 </mapper>

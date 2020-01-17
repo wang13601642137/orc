@@ -1,8 +1,10 @@
 package orc.orc;
 
 import orc.orc.domain.Admin;
+import orc.orc.domain.Member;
 import orc.orc.domain.Product;
 import orc.orc.repository.AdminMapper;
+import orc.orc.repository.MemberMapper;
 import orc.orc.repository.ProductMapper;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,8 @@ public class DaoTest extends BaseTest{
     private AdminMapper adminRepository;
     @Autowired
     private ProductMapper productMapper;
+    @Autowired
+    private MemberMapper memberMapper;
 
     @Test
     public void testInsertAdmint() {
@@ -35,4 +39,15 @@ public class DaoTest extends BaseTest{
         Product product = productMapper.selectByPrimaryKey(1);
         System.out.println(product);
     }
+
+    @Test
+
+    public void testFindMember() {
+        Member m = new Member();
+        m.setUserName("admin");
+        memberMapper.find(m);
+
+    }
+
+
 }

@@ -25,7 +25,7 @@ public class MemberService {
         member.setCreatedAt(new Date());
         member.setCreatedBy(0);
         member.setUpdatedAt(new Date());
-        member.setCreatedBy(0);
+        member.setUpdatedBy(0);
         memberMapper.insert(member);
     }
 

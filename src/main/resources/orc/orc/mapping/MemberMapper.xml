@@ -217,10 +217,10 @@
     from member
     <where>
       <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
+        AND user_name = #{userName,jdbcType=VARCHAR}
       </if>
       <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
+        AND password = #{password,jdbcType=VARCHAR}
       </if>
     </where>
   </select>
