@@ -22,7 +22,7 @@ public class IndexVO {
     }
 
     @Data
-    private static class ProductVO {
+    public static class ProductVO {
         private Integer pid;
         private Integer cid;
         private String productName;
