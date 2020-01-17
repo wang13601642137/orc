@@ -4,7 +4,6 @@ package orc.orc.controller;
 import lombok.extern.slf4j.Slf4j;
 import orc.orc.domain.Member;
 import orc.orc.service.MemberService;
-import org.aspectj.weaver.loadtime.Aj;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.Assert;
