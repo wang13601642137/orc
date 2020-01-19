@@ -20,7 +20,7 @@ import java.io.File;
 @RequestMapping(value = "upload")
 public class UploadController {
 
-    private String storePath = "/Users/wenjin.wang/Lab/source/orc/src/main/webapp/upload";
+    private String storePath = "/Users/wenjin.wang/Lab/source/biyesheji/orc/src/main/webapp/upload";
 
     @RequestMapping(value = "/upload", method = RequestMethod.POST)
     @ResponseBody
