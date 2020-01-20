@@ -5,6 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import orc.orc.controller.pc.vo.AddCartVO;
 import orc.orc.controller.pc.vo.AjaxResponse;
 import orc.orc.controller.pc.vo.IndexVO;
+import orc.orc.domain.Cart;
+import orc.orc.domain.CartVO;
 import orc.orc.domain.Category;
 import orc.orc.domain.Product;
 import orc.orc.service.CartService;
@@ -81,6 +83,23 @@ public class PcController {
             for(AddCartVO.AddItem addItem : addCartVO.getAddItemList()) {
                 cartService.addCart(addItem.getProductId(), addItem.getNumber(), addCartVO.getMemberId());
             }
+        } catch (Exception e) {
+            ajaxResponse.setCode(AjaxResponse.fail);
+            ajaxResponse.setMsg("添加购物车失败");
+        }
+        return ajaxResponse;
+    }
+
+    @RequestMapping("/cart/query")
+    @ResponseBody
+    public AjaxResponse queryCart(Integer userId) {
+        log.info("添加购物，请求参数:{}", userId);
+        AjaxResponse ajaxResponse = new AjaxResponse();
+        try {
+            Cart cart = new Cart();
+            cart.setUserId(userId);
+            List<CartVO> cartList = cartService.findCart(cart);
+            ajaxResponse.setData(cartList);
         } catch (Exception e) {
             ajaxResponse.setCode(AjaxResponse.fail);
             ajaxResponse.setMsg("添加购物车失败");

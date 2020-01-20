@@ -36,24 +36,4 @@ public class CartController {
         map.put("cartVOList", cartVOList);
         return "cart/list";
     }
-
-    @RequestMapping("/add")
-    @ResponseBody
-    public AjaxResponse addCart(Integer productId, Integer quantity, HttpServletRequest request) {
-        log.info("添加购物车，请求参数：productId:{}, quantity:{}", productId, quantity);
-        AjaxResponse ajaxResponse = new AjaxResponse();
-        if(request.getSession().getAttribute("login").equals("0")) {
-            ajaxResponse.setCode(AjaxResponse.fail);
-            ajaxResponse.setMsg("请您先登陆");
-        } else {
-            Integer userId = (Integer) request.getSession().getAttribute("userId");
-            try {
-                cartService.addCart(productId, quantity, userId);
-            } catch (Exception e) {
-                ajaxResponse.setCode(AjaxResponse.fail);
-                ajaxResponse.setMsg("添加购物车失败");
-            }
-        }
-        return ajaxResponse;
-    }
 }
