@@ -2,6 +2,7 @@ package orc.orc.controller;
 
 
 import lombok.extern.slf4j.Slf4j;
+import orc.orc.controller.pc.vo.AjaxResponse;
 import orc.orc.domain.Member;
 import orc.orc.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;

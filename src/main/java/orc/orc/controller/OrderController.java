@@ -2,7 +2,8 @@ package orc.orc.controller;
 
 import com.alibaba.fastjson.JSON;
 import lombok.extern.slf4j.Slf4j;
-import orc.orc.controller.vo.PlaceOrderVO;
+import orc.orc.controller.pc.vo.AjaxResponse;
+import orc.orc.controller.pc.vo.PlaceOrderVO;
 import orc.orc.domain.Product;
 import orc.orc.domain.ProductOrder;
 import orc.orc.service.OrderService;
