@@ -74,7 +74,7 @@ public class PcController {
 
     @RequestMapping("/cart/add")
     @ResponseBody
-    public AjaxResponse addCart(@RequestBody(required = false) AddCartVO addCartVO) {
+    public AjaxResponse addCart(@RequestBody AddCartVO addCartVO) {
         log.info("添加购物，请求参数:{}", JSON.toJSON(addCartVO));
         AjaxResponse ajaxResponse = new AjaxResponse();
         try {
