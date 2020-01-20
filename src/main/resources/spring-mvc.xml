@@ -76,7 +76,7 @@
     <mvc:interceptors>
         <!--登录拦截器-->
         <mvc:interceptor>
-            <mvc:mapping path="/pc/trade/addCart"/>
+            <mvc:mapping path="/pc/cart/add11"/>
             <bean class="orc.orc.interceptor.LoginInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>

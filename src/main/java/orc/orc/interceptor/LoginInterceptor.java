@@ -18,6 +18,14 @@ public class LoginInterceptor implements HandlerInterceptor {
     public boolean preHandle(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o) throws Exception {
         String uri = httpServletRequest.getRequestURI();
         log.info("请求URL: {}", uri);
+
+        //判断用户有没有登录
+        Object object = httpServletRequest.getSession().getAttribute("username");
+        if (object == null) {
+            log.info("没有登陆");
+            return false;
+        }
+        //true放行,false拦截
         return true;
     }
 

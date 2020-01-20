@@ -10,7 +10,7 @@ import java.util.List;
 @Data
 public class IndexVO {
     private boolean login;
-    private String nickname;
+    private String userName;
     private List<CategoryVO> categoryList;
     private List<ProductVO> productList;
 
