@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -54,9 +55,16 @@ public class OrderController {
             try {
                 Integer userId = (Integer) request.getSession().getAttribute("userId");
                 List<PlaceOrderVO.ProductItem> productItemList = req.getProductItemList();
+                List<ProductOrder> productOrderList = new ArrayList<>();
                 for(PlaceOrderVO.ProductItem each : productItemList) {
                     ProductOrder order = new ProductOrder();
                     Product product = productService.getProductById(each.getProductId());
+                    if(!product.getSale()) {
+                        throw new RuntimeException("商品：" + each.getProductId() + "已下架");
+                    }
+                    if(product.getQuantity() == 0) {
+                        throw new RuntimeException("商品：" + each.getProductId() + "库存不足");
+                    }
                     order.setProductName(product.getName());
                     order.setAmount(each.getPrice().multiply(BigDecimal.valueOf(each.getQuantity())));
                     order.setProductId(product.getId());
@@ -69,7 +77,11 @@ public class OrderController {
                     order.setConsigneeAddress(req.getConsigneeAddress());
                     order.setConsigneeMobile(req.getConsigneeMobile());
                     order.setConsigneeName(req.getConsigneeName());
-                    orderService.placeOrder(order);
+                    productOrderList.add(order);
+
+                }
+                for(ProductOrder productOrder : productOrderList) {
+                    orderService.placeOrder(productOrder);
                 }
             } catch (Exception e) {
                 ajaxResponse.setCode(AjaxResponse.fail);
