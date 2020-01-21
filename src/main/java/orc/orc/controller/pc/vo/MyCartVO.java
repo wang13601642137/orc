@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 public class MyCartVO {
     private Integer productId;
     private String productName;
+    private String imageUrl;
     private BigDecimal productPrice;
     private Integer number;
 }

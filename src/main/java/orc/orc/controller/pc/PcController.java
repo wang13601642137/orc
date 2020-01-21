@@ -5,6 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import orc.orc.controller.pc.vo.AddCartVO;
 import orc.orc.controller.pc.vo.AjaxResponse;
 import orc.orc.controller.pc.vo.IndexVO;
+import orc.orc.controller.pc.vo.MyCartVO;
 import orc.orc.domain.Cart;
 import orc.orc.domain.CartVO;
 import orc.orc.domain.Category;
@@ -96,9 +97,7 @@ public class PcController {
         log.info("添加购物，请求参数:{}", userId);
         AjaxResponse ajaxResponse = new AjaxResponse();
         try {
-            Cart cart = new Cart();
-            cart.setUserId(userId);
-            List<CartVO> cartList = cartService.findCart(cart);
+            List<MyCartVO> cartList = cartService.findMyCartVOList(userId);
             ajaxResponse.setData(cartList);
         } catch (Exception e) {
             ajaxResponse.setCode(AjaxResponse.fail);

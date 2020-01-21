@@ -25,6 +25,8 @@
     <result column="user_id" jdbcType="INTEGER" property="userId" />
     <result column="product_id" jdbcType="INTEGER" property="productId" />
     <result column="product_name" jdbcType="VARCHAR" property="productName" />
+    <result column="image_url" jdbcType="VARCHAR" property="imageUrl" />
+    <result column="product_price" jdbcType="DECIMAL" property="productPrice" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="quantity" jdbcType="INTEGER" property="quantity" />
     <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
@@ -185,7 +187,7 @@
   </update>
 
   <select id="find" parameterType="orc.orc.domain.CartVO" resultMap="cartVOResultMap">
-    SELECT cart.*, product.name AS product_name, member.real_name
+    SELECT cart.*, product.price as product_price, product.image_url, product.name AS product_name, member.real_name
     FROM cart, product, member
     WHERE cart.product_id = product.id
     AND cart.user_id = member.id
