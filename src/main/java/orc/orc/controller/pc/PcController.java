@@ -6,8 +6,6 @@ import orc.orc.controller.pc.vo.AddCartVO;
 import orc.orc.controller.pc.vo.AjaxResponse;
 import orc.orc.controller.pc.vo.IndexVO;
 import orc.orc.controller.pc.vo.MyCartVO;
-import orc.orc.domain.Cart;
-import orc.orc.domain.CartVO;
 import orc.orc.domain.Category;
 import orc.orc.domain.Product;
 import orc.orc.service.CartService;
