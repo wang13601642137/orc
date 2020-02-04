@@ -7,6 +7,7 @@ import lombok.Data;
  */
 @Data
 public class Response {
+    //300 操作失败 301 超时
     private String statusCode = "200";
     private String message = "操作成功";
     private String navTabId = "";

@@ -46,11 +46,19 @@ public class ProductController {
     @ResponseBody
     @RequestMapping("/category/save")
     public Response saveCategory(String name, ModelMap map) {
-        Category record = new Category();
-        record.setName(name);
-        record.setStatus(true);
-        productService.saveCategory(record);
+        Category category = new Category();
+        category.setName(name);
+        List<Category> categoryList = productService.findCategory(category);
         Response response = new Response();
+        if(categoryList != null && categoryList.size() > 0) {
+            response.setStatusCode("300");
+            response.setMessage("分类已存在");
+        } else {
+            Category record = new Category();
+            record.setName(name);
+            record.setStatus(true);
+            productService.saveCategory(record);
+        }
         return response;
     }
 
@@ -75,8 +83,17 @@ public class ProductController {
     public Response saveCategory(@Param("cid") String cid, @Param("name") String name, ModelMap map) {
         Category record = productService.getCategoryById(Integer.parseInt(cid));
         record.setName(name);
-        productService.modifyCategory(record);
+        Category category = new Category();
+        category.setName(name);
+        List<Category> categoryList = productService.findCategory(category);
         Response response = new Response();
+
+        if(categoryList != null && categoryList.size() > 0) {
+            response.setStatusCode("300");
+            response.setMessage("分类已存在");
+        } else {
+            productService.modifyCategory(record);
+        }
         return response;
     }
 
