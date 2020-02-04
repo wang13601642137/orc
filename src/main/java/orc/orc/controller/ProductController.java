@@ -132,6 +132,13 @@ public class ProductController {
     @RequestMapping("/modify")
     public Response modifyProduct(Integer id, String name, BigDecimal price,Integer quantity,  Integer cid, String imageUrl, String description, ModelMap map) {
         log.info("id:{}, name:{}, price:{}, cid:{}, imgUrl:{}, description:{}", id, name, price, cid, imageUrl, description);
+        Response response = new Response();
+        if(quantity < 0) {
+            response.setStatusCode("300");
+            response.setMessage("库存不能为负数");
+            return response;
+        }
+
         Product record = new Product();
         record.setId(id);
         record.setName(name);
@@ -144,7 +151,7 @@ public class ProductController {
         record.setUpdatedBy(0);
         record.setStatus(true);
         productService.modifyProduct(record);
-        Response response = new Response();
+
         return response;
     }
 
