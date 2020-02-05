@@ -36,8 +36,6 @@ public class PcController {
     public AjaxResponse index() {
         AjaxResponse response = new AjaxResponse();
         IndexVO vo = new IndexVO();
-        vo.setLogin(true);
-        vo.setUserName("wwj2020");
         response.setData(vo);
         Category queryCategoryCondition = new Category();
         queryCategoryCondition.setStatus(true);
