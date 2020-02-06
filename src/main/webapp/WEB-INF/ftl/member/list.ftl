@@ -42,9 +42,9 @@
 				<td>${member.id}</td>
 				<td>${member.userName}</td>
 				<td>${member.password}</td>
-                <td>${product.status?string ("是","否")}</td>
-                <td>${product.createdAt?string('yyyy-MM-dd hh:mm:ss')}</td>
-                <td>${product.updatedAt?string('yyyy-MM-dd hh:mm:ss')}</td>
+                <td>${member.status?string ("是","否")}</td>
+                <td>${member.createdAt?string('yyyy-MM-dd hh:mm:ss')}</td>
+                <td>${member.updatedAt?string('yyyy-MM-dd hh:mm:ss')}</td>
 			</tr>
 	    </#list>
 
