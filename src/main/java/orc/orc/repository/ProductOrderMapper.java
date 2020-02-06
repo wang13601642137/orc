@@ -1,6 +1,8 @@
 package orc.orc.repository;
 
+import orc.orc.domain.MyOrderVO;
 import orc.orc.domain.ProductOrder;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -56,4 +58,6 @@ public interface ProductOrderMapper {
     int updateByPrimaryKey(ProductOrder record);
 
     List<ProductOrder> find(ProductOrder record);
+
+    List<MyOrderVO> selectMyOrderVO(@Param("userId") Integer userId);
 }

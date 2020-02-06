@@ -10,7 +10,7 @@
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="product_id" jdbcType="INTEGER" property="productId" />
     <result column="product_name" jdbcType="VARCHAR" property="productName" />
-    <result column="status" jdbcType="BIT" property="status" />
+    <result column="status" jdbcType="INTEGER" property="status" />
     <result column="amount" jdbcType="DECIMAL" property="amount" />
     <result column="consignee_name" jdbcType="VARCHAR" property="consigneeName" />
     <result column="consignee_address" jdbcType="VARCHAR" property="consigneeAddress" />
@@ -231,6 +231,22 @@
       <if test="productName != null">
         product_name = #{productName,jdbcType=VARCHAR}
       </if>
+      <if test="userId != null">
+        user_id = #{userId,jdbcType=INTEGER}
+      </if>
     </where>
+  </select>
+  
+  
+  <select id="selectMyOrderVO" resultType="orc.orc.domain.MyOrderVO">
+
+    select
+      product.image_url as itemImageUrl,
+      product_order.status as orderStatus,
+      product_order.product_name as itemName,
+      product_order.amount as orderAmount,
+      product_order.consignee_name as consigneeName
+    from product_order, product
+    where product.id = product_order.product_id and product_order.user_id = 1
   </select>
 </mapper>

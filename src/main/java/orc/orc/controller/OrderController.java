@@ -68,7 +68,7 @@ public class OrderController {
                     order.setProductName(product.getName());
                     order.setAmount(each.getPrice().multiply(BigDecimal.valueOf(each.getQuantity())));
                     order.setProductId(product.getId());
-                    order.setStatus(true);
+                    order.setStatus(0);
                     order.setCreatedAt(new Date());
                     order.setCreatedBy(0);
                     order.setUpdateAt(new Date());

@@ -7,8 +7,12 @@ import orc.orc.controller.pc.vo.AjaxResponse;
 import orc.orc.controller.pc.vo.IndexVO;
 import orc.orc.controller.pc.vo.MyCartVO;
 import orc.orc.domain.Category;
+import orc.orc.domain.MyOrderVO;
 import orc.orc.domain.Product;
+import orc.orc.domain.ProductOrder;
+import orc.orc.enums.OrderStatus;
 import orc.orc.service.CartService;
+import orc.orc.service.OrderService;
 import orc.orc.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,6 +34,8 @@ public class PcController {
     private ProductService productService;
     @Autowired
     private CartService cartService;
+    @Autowired
+    private OrderService orderService;
 
     @RequestMapping("/index")
     @ResponseBody
@@ -101,4 +107,23 @@ public class PcController {
         }
         return ajaxResponse;
     }
+
+
+    @RequestMapping("/order/query")
+    @ResponseBody
+    public AjaxResponse queryOrdert(Integer userId) {
+        AjaxResponse ajaxResponse = new AjaxResponse();
+
+        List<MyOrderVO> orderList = orderService.selectMyOrder(userId);
+        for(MyOrderVO each : orderList) {
+            each.setOrderStatusDesc(OrderStatus.forCode(each.getOrderStatus()).getDesc());
+        }
+        ajaxResponse.setData(orderList);
+
+        return ajaxResponse;
+
+
+    }
+
+
 }

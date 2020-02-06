@@ -1,5 +1,6 @@
 package orc.orc.service;
 
+import orc.orc.domain.MyOrderVO;
 import orc.orc.domain.ProductOrder;
 import orc.orc.repository.ProductOrderMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,5 +22,10 @@ public class OrderService {
 
     public void placeOrder(ProductOrder record) {
         orderMapper.insert(record);
+    }
+
+
+    public List<MyOrderVO> selectMyOrder(Integer userId) {
+        return orderMapper.selectMyOrderVO(userId);
     }
 }
