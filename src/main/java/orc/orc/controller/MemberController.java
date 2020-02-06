@@ -3,15 +3,18 @@ package orc.orc.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import orc.orc.controller.pc.vo.AjaxResponse;
+import orc.orc.domain.Category;
 import orc.orc.domain.Member;
 import orc.orc.service.MemberService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.util.Assert;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 /**
@@ -23,6 +26,13 @@ import javax.servlet.http.HttpServletRequest;
 public class MemberController {
     @Autowired
     private MemberService memberService;
+
+    @RequestMapping("/list")
+    public String find(ModelMap map) {
+        List<Member> memberList = memberService.find(new Member());
+        map.put("memberList", memberList);
+        return "member/list";
+    }
 
     @RequestMapping("/register")
     @ResponseBody

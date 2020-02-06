@@ -1,5 +1,6 @@
 package orc.orc.service;
 
+import orc.orc.domain.Category;
 import orc.orc.domain.Member;
 import orc.orc.repository.MemberMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,4 +50,9 @@ public class MemberService {
         }
         return null;
     }
+
+    public List<Member> find(Member condition) {
+        return memberMapper.find(condition);
+    }
+
 }

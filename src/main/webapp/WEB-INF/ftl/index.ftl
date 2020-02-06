@@ -145,7 +145,7 @@ $(function(){
                         <ul class="tree treeFolder">
                             <li><a href="tabsPage.html" target="navTab">会员管理</a>
                                 <ul>
-                                    <li><a href="product/list" target="navTab" rel="page1" fresh="false">会员</a></li>
+                                    <li><a href="member/list" target="navTab" rel="page1" fresh="false">会员</a></li>
                                 </ul>
                             </li>
                         </ul>
