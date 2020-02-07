@@ -9,7 +9,6 @@ CREATE TABLE `admin` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='管理员';
 
-
 CREATE TABLE `cart` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '购物车添加记录编号，自增主键',
   `user_id` int(11) NOT NULL COMMENT '用户编号',
@@ -66,7 +65,8 @@ CREATE TABLE `product_order` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '订单编号，自增主键',
   `product_id` int(11) NOT NULL COMMENT '商品编号',
   `product_name` varchar(50) NOT NULL COMMENT '商品名称',
-  `status` tinyint(1) NOT NULL COMMENT '订单状态：0 有效；1 无效',
+  `product_quantity` int(11) NOT NULL DEFAULT '1' COMMENT '商品数量',
+  `status` int(11) NOT NULL COMMENT '订单状态：0 有效；1 无效',
   `amount` decimal(10,2) NOT NULL COMMENT '订单金额',
   `consignee_name` varchar(50) NOT NULL COMMENT '收货人姓名',
   `consignee_address` varchar(100) NOT NULL COMMENT '收货人地址',
