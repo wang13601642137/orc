@@ -13,8 +13,7 @@ public class LoginController {
 
     @RequestMapping("/login")
     public String sayHello1(ModelMap map) {
-        map.put("userName", "小明");
-        map.put("userAge", 23);
+
         return "login";
     }
 }
