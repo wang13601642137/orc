@@ -23,7 +23,7 @@
     <commonLang.version>2.6</commonLang.version>
     <commonLang3.version>3.3.1</commonLang3.version>
     <commonCodec.version>1.9</commonCodec.version>
-    <commonBeanutils.version>1.9.0</commonBeanutils.version>
+    <commonBeanutils.version>1.9.2</commonBeanutils.version>
     <commonFileUpload.version>1.3.1</commonFileUpload.version>
     <mysql.version>5.1.34</mysql.version>
     <druid.version>1.0.7</druid.version>
