@@ -16,7 +16,7 @@
   <properties>
     <spring.version>4.2.5.RELEASE</spring.version>
     <jackson.version>2.2.3</jackson.version>
-    <fastjson.version>1.1.39</fastjson.version>
+    <fastjson.version>1.2.83</fastjson.version>
     <gson.version>2.6.1</gson.version>
     <freemarker.version>2.3.23</freemarker.version>
     <commonEL.version>1.0</commonEL.version>
